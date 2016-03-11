@@ -18,10 +18,9 @@ build:
         name: Show db connection
         code: |
           echo -e "PostgreSQL:"
-          echo -e "\tusername:\t$POSTGRES_USER"
           echo -e "\tpassword:\t$POSTGRES_PASSWORD"
-          echo -e "\thost:\t$POSTGRES_HOST"
-          echo -e "\tport:\t$POSTGRES_PORT"
+          echo -e "\thost:\t$POSTGRES_PORT_5432_TCP_ADDR"
+          echo -e "\tport:\t$POSTGRES_PORT_5432_TCP_PORT"
 
     - script:
         name: Set up db
