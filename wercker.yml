@@ -3,7 +3,8 @@ box: ruby:2.3.0
 services:
     - id: postgres
       env:
-        POSTGRES_PASSWORD: bobsyouruncle
+        POSTGRES_USER: $POSTGRES_USER
+        POSTGRES_PASSWORD: $POSTGRES_PASSWORD
 
 build:
   steps:
@@ -17,6 +18,8 @@ build:
         name: Show db connection
         code: |
           echo -e "PostgreSQL:"
+          echo -e "\tuser:\t$POSTGRES_USER"
+          echo -e "\tpswd:\t$POSTGRES_PASSWORD"
           echo -e "\thost:\t$POSTGRES_PORT_5432_TCP_ADDR"
           echo -e "\tport:\t$POSTGRES_PORT_5432_TCP_PORT"
 
