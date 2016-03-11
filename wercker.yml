@@ -1,7 +1,7 @@
 box: ruby:2.3.0
 
 services:
-    - postgresql
+    - wercker/postgresql
 
 build:
   steps:
