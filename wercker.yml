@@ -1,7 +1,10 @@
 box: ruby:2.3.0
 
 services:
-    - wercker/postgresql
+    - id: postgres
+      env:
+        POSTGRES_USER: mylittlename
+        POSTGRES_PASSWORD: ourlittlesecret
 
 build:
   steps:
