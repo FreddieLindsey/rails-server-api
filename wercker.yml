@@ -15,8 +15,19 @@ build:
     - bundle-install
 
     - script:
+        name: Show db connection
+        code: |
+          echo -e "PostgreSQL:"
+          echo -e "\tusername:\t$POSTGRESQL_USER"
+          echo -e "\tpassword:\t$POSTGRESQL_PASSWORD"
+          echo -e "\thost:\t$POSTGRESQL_HOST"
+          echo -e "\tport:\t$POSTGRESQL_PORT"
+
+    - script:
         name: Set up db
-        code: bundle exec rake db:schema:load RAILS_ENV=test
+        code: |
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
 
     - script:
         name: rspec
