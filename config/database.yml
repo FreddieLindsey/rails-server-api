@@ -18,7 +18,7 @@ production:
 test:
   <<: *default
   database: rails-server-api_test
-  username: <%= ENV['POSTGRESQL_USER'] %>
-  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
-  host: <%= ENV['POSTGRESQL_HOST'] %>
-  port: <%= ENV['POSTGRESQL_PORT'] %>
+  username: <%= ENV['POSTGRES_USER'] || '' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
+  host: <%= ENV['POSTGRES_HOST'] || '' %>
+  port: <%= ENV['POSTGRES_PORT'] || '' %>

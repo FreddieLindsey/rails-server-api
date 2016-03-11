@@ -3,8 +3,8 @@ box: ruby:2.3.0
 services:
     - id: postgres
       env:
-        POSTGRES_USER: mylittlename
-        POSTGRES_PASSWORD: ourlittlesecret
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
 
 build:
   steps:
@@ -18,10 +18,10 @@ build:
         name: Show db connection
         code: |
           echo -e "PostgreSQL:"
-          echo -e "\tusername:\t$POSTGRESQL_USER"
-          echo -e "\tpassword:\t$POSTGRESQL_PASSWORD"
-          echo -e "\thost:\t$POSTGRESQL_HOST"
-          echo -e "\tport:\t$POSTGRESQL_PORT"
+          echo -e "\tusername:\t$POSTGRES_USER"
+          echo -e "\tpassword:\t$POSTGRES_PASSWORD"
+          echo -e "\thost:\t$POSTGRES_HOST"
+          echo -e "\tport:\t$POSTGRES_PORT"
 
     - script:
         name: Set up db
