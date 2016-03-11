@@ -17,7 +17,7 @@ production:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails-server-api_test
-  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
-  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] || '' %>
-  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] || '' %>
+  database: <%= ENV['POSTGRES_NAME'] %>
+  password: bobsyouruncle
+  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] %>
