@@ -1,16 +1,30 @@
-box: rails
+box: ruby:2.3.0
+
 services:
-  - id: postgres
-    env:
-      POSTGRES_USER: mylittlename
-      POSTGRES_PASSWORD: ourlittlesecret
+    - postgresql
 
 build:
   steps:
+
     - script:
         name: configure bundler
         code: bundle config build.nokogiri --use-system-libraries
     - bundle-install
+
+    - rails-database-yml:
+        service: postgresql
+
+    - script:
+        name: Set up db
+        code: bundle exec rake db:schema:load RAILS_ENV=test
+
     - script:
         name: rspec
         code: bundle exec rspec
+
+# deploy:
+#     steps:
+#         - heroku-deploy
+#         - script:
+#             name: Update database
+#             code: heroku run rake db:migrate --app $TARGET_NAME

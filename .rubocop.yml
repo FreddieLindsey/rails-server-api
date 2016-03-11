@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'tmp/**/*'
+  Documentation:
+    Enabled: false
+  TargetRubyVersion: 2.3
